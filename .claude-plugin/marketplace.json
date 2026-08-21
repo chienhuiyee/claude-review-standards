@@ -1,0 +1,21 @@
+{
+  "name": "review-standards",
+  "owner": {
+    "name": "Chien Hui",
+    "email": "chien.hui.yee@gmail.com"
+  },
+  "metadata": {
+    "description": "Centralised code review standards for web, service, gateway, and AI agent repos",
+    "version": "1.2.0"
+  },
+  "plugins": [
+    {
+      "name": "code-review",
+      "source": "./plugins/code-review",
+      "description": "Standardised PR review: one rubric, one output format, per-repo-type checklists.",
+      "version": "1.2.0",
+      "category": "review",
+      "keywords": ["code-review", "pr", "standards", "github"]
+    }
+  ]
+}

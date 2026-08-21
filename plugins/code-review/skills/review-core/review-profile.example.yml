@@ -1,0 +1,38 @@
+# Copy to .claude/review-profile.yml in each repo and commit it.
+# This is the single line that stops profile auto-detection from guessing.
+
+profile: service   # one of: web | service | gateway | ai-agent
+# A repo may declare two if it genuinely spans both, e.g.:
+# profile: [ai-agent, service]
+
+# Optional per-repo overrides layered on top of the shared standards.
+# Keep this short — anything general belongs in the shared plugin, not here.
+overrides:
+  # Extra things that are ALWAYS blockers in this specific repo:
+  blockers:
+    - "Any change under src/billing/ without a corresponding test"
+    - "New env var not documented in .env.example"
+
+  # Things the shared standard flags that do NOT apply here (with a reason):
+  waivers:
+    - rule: "pagination on new collection endpoints"
+      reason: "internal admin API, all collections are bounded by tenant"
+    - rule: "i18n extraction for user-facing strings"
+      reason: "internal ops console, English-only by product decision"
+
+  # Paths to skip entirely (generated code, vendored deps):
+  ignore:
+    - "**/*.generated.ts"
+    - "db/schema.rb"
+
+# Optional hints that make the review-core §3.2 utils check faster and more accurate.
+# Point it at where shared code actually lives in THIS repo.
+shared_code:
+  - "src/lib/**"
+  - "src/utils/**"
+  - "packages/common/src/**"
+
+constants:
+  # Where hardcoded literals should be moved to when flagged by §3.1.
+  messages: "src/constants/messages.ts"
+  enums: "src/constants/enums.ts"

@@ -1,0 +1,12 @@
+{
+  "name": "code-review",
+  "displayName": "Standardised Code Review",
+  "version": "1.2.0",
+  "description": "One review rubric and one output format across every repo. Layers repo-type standards (web / service / gateway / ai-agent) on top of a shared severity and verdict contract.",
+  "author": {
+    "name": "Chien Hui",
+    "email": "chien.hui.yee@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "pull-request", "standards", "github"]
+}
